@@ -1,3 +1,91 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('https://cdn.pixabay.com/photo/2013/05/09/09/06/waves-circles-109964_1280.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 2rem;
+        }
+        
+        p {
+            text-align: center;
+            color: #666;
+            font-size: 1.5rem;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        li {
+            margin-bottom: 15px;
+        }
+        
+        a {
+            display: inline-block;
+            text-decoration: none;
+            color: #007bff;
+            margin-left: 10px;
+            padding: 8px 12px;
+            border: 1px solid #007bff;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        
+        a:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Video Successfully Split!</h1>
+        <p>Click on the buttons below to watch or download each part of the video:</p>
+        <ul>
+            {% for part_number, video_path in split_videos.items %}
+                <li>
+                    Part {{ part_number }}
+                    <a href="{{ video_path }}" target="_blank">Watch</a> 
+                    <a href="{{ video_path }}" download>Download</a> 
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html> -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
