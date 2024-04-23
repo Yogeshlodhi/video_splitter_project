@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -73,5 +73,121 @@
             <button type="submit">Split Video</button>
         </form>
     </div>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Splitter</title>
+    <style>
+        body {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('https://imgs.search.brave.com/Qu5YomB6FeX6726w7qWdZ00NDDXFYHaJFK3rxnWvCSA/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9saWJy/YXJ5LmlpdHAuYWMu/aW4vaW1hZ2VzL2Jh/bm5lci9pbWFnZTAx/LmpwZw');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: 83vh;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            text-transform: uppercase;
+            font-size: 3rem;
+        }
+        form {
+            width: 600px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="file"], input[type="number"], button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            height: 4rem;
+            cursor: pointer;
+        }
+        input[type="number"] {
+            font-size: 2rem;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 1.5rem;
+            position: relative; /* Added position relative for loader */
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .loader {
+            border: 5px solid #f3f3f3; /* Light grey */
+            border-top: 5px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 2s linear infinite;
+            position: absolute; /* Position loader in center */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none; /* Initially hidden */
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 10rem;
+            height: 30rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Video Splitter</h1>
+        <form id="splitForm" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.video }}
+            <input type="number" name="num_parts" id="numParts" placeholder="Number of Parts" min="1" style="font-size: 16px; padding: 12px;">
+            <button id="splitButton" type="submit">Split Video<span class="loader"></span></button>
+        </form>
+    </div>
+
+    <script>
+        // Function to show loader
+        function showLoader() {
+            document.getElementById("splitButton").disabled = true; // Disable button while loading
+            document.querySelector('.loader').style.display = 'inline-block';
+        }
+
+        // Function to hide loader
+        function hideLoader() {
+            document.getElementById("splitButton").disabled = false; // Enable button after loading
+            document.querySelector('.loader').style.display = 'none';
+        }
+
+        // Attach event listener to form submission
+        document.getElementById('splitForm').addEventListener('submit', function() {
+            showLoader(); // Show loader when form is submitted
+        });
+    </script>
 </body>
 </html>
